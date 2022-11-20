@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(MaterialApp(
+  runApp(const MaterialApp(
     home: Home(),
   ));
 }
@@ -14,88 +14,27 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  int level = 0;
+
+  List<String> quates =[
+  'The greatest glory in living lies not in never falling, but in rising every time we fall. -Nelson Mandela',
+    'The way to get started is to quit talking and begin doing. -Walt Disney',
+    'If life were predictable it would cease to be life, and be without flavor. -Eleanor Roosevelt'
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[900],
+      backgroundColor: Colors.grey[200],
       appBar: AppBar(
-        title: Text("Ninja theam"),
-        backgroundColor: Colors.grey[850],
+        title: const Text("Awesome Quotes"),
         centerTitle: true,
-        elevation: 0.0,
+        backgroundColor: Colors.cyan,
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          setState(() {
-            level += 1;
-          });
-        },
-        backgroundColor: Colors.amberAccent,
-        child: const Icon(Icons.add),
-      ),
-      body: Padding( 
-        padding: const EdgeInsets.fromLTRB(30.0, 40.0, 30.0, 0.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const Center(
-              child: CircleAvatar(
-                backgroundImage: AssetImage('assets/face.jpeg'),
-                radius: 90,
-              ),
-            ),
-            const Divider(
-              height: 60,
-              color: Colors.grey,
-            ),
-            const Text(
-              "NAME",
-              style: TextStyle(color: Colors.grey, letterSpacing: 2.0),
-            ),
-            const SizedBox(height: 10),
-            Text(
-              "M-Kamal",
-              style: TextStyle(
-                  letterSpacing: 2.0,
-                  color: Colors.amberAccent[200],
-                  fontSize: 30,
-                  fontWeight: FontWeight.bold),
-            ),
-            const SizedBox(height: 30),
-            const Text(
-              "CURRENT LEVE",
-              style: TextStyle(color: Colors.grey, letterSpacing: 2.0),
-            ),
-            const SizedBox(height: 10),
-            Text(
-              "$level",
-              style: TextStyle(
-                  letterSpacing: 2.0,
-                  color: Colors.amberAccent[200],
-                  fontSize: 30,
-                  fontWeight: FontWeight.bold),
-            ),
-            const SizedBox(height: 30),
-            Row(
-              children: const [
-                Icon(
-                  Icons.mail,
-                  color: Colors.grey,
-                ),
-                SizedBox(width: 10),
-                Text(
-                  " oyekamalkhan@gmail.com",
-                  style: TextStyle(
-                    letterSpacing: 1.0,
-                    color: Colors.grey,
-                    fontSize: 18,
-                  ),
-                ),
-              ],
-            )
-          ],
-        ),
+      body: Column(
+        // children: quates.map((quate)  {
+        //   return Text(quate);
+        // }).toList(),
+
+        children: quates.map((e) => Text(e)).toList(),
       ),
     );
   }
