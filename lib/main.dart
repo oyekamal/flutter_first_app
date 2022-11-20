@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'quotes.dart';
 void main() {
   runApp(const MaterialApp(
     home: Home(),
@@ -15,10 +15,13 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
 
-  List<String> quates =[
-  'The greatest glory in living lies not in never falling, but in rising every time we fall. -Nelson Mandela',
-    'The way to get started is to quit talking and begin doing. -Walt Disney',
-    'If life were predictable it would cease to be life, and be without flavor. -Eleanor Roosevelt'
+  List<Quotes> quates =[
+    Quotes(text:'The greatest glory in living lies not in never falling, but in rising every time we fall.', author: '-Nelson Mandela'),
+    Quotes(text:'The way to get started is to quit talking and begin doing.', author: '-Walt Disney'),
+    Quotes(text:'If life were predictable it would cease to be life, and be without flavor.', author: '-Eleanor Roosevelt'),
+  // 'The greatest glory in living lies not in never falling, but in rising every time we fall. -Nelson Mandela',
+  //   ' ',
+  //   ' '
   ];
   @override
   Widget build(BuildContext context) {
@@ -34,7 +37,7 @@ class _HomeState extends State<Home> {
         //   return Text(quate);
         // }).toList(),
 
-        children: quates.map((e) => Text(e)).toList(),
+        children: quates.map((quate) => Text(quate.author)).toList(),
       ),
     );
   }
